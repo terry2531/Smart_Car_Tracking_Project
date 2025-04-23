@@ -5,13 +5,13 @@ import numpy as np
 cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
-    print("无法Open camera")
+    print("can not Open camera")
     exit()
 
 while True:
     ret, frame = cap.read()
     if not ret or frame is None:
-        print("Cannot read from camera帧，检查摄像头是否被占用")
+        print("Cannot read from camera")
         continue
 
     # Convert to HSV color space
@@ -51,7 +51,7 @@ while True:
     cv2.imshow("Red Color Detection", result)  # Only red area
     cv2.imshow("Mask", mask)  # Mask image (for debug)
 
-    # 按 'q' 或 ESC 退出
+    # use 'q' or ESC to quit
     key = cv2.waitKey(1) & 0xFF
     if key == ord('q') or key == 27:
         print("Exit program")
